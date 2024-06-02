@@ -11,6 +11,14 @@ class Point:
     y: float
     l: int | str | None = None
 
+    def to_dict(self):
+        return {
+            "i": self.i,
+            "x": self.x,
+            "y": self.y,
+            "l": self.l,
+        }
+
 
 @dataclass
 class Projection:
@@ -24,11 +32,14 @@ class Projection:
                     int(i),
                     round(float(x), 3),
                     round(float(y), 3),
-                    int(l) if l is not None else None,
+                    int(l) if l is not None else "N",
                 )
                 for i, (x, y, l) in enumerate(zip(arr[:, 0], arr[:, 1], labels))
             ]
         )
+
+    def to_dict(self):
+        return {"projection": [p.to_dict() for p in self.projection]}
 
 
 @dataclass
@@ -37,7 +48,6 @@ class GhostProjection:
 
     @staticmethod
     def from_array(ghost_projections: np.ndarray, ghost_indices: np.ndarray):
-        ghost_projections = np.swapaxes(ghost_projections, 0, 1)
 
         return GhostProjection(
             [
@@ -52,6 +62,9 @@ class GhostProjection:
                 for projection in ghost_projections
             ]
         )
+
+    def to_dict(self):
+        return {"projections": [p.to_dict() for p in self.projections]}
 
 
 @dataclass
