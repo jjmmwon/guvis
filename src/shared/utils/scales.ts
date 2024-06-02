@@ -9,7 +9,7 @@ const getXScale = (points: IPoint[], width: number) => {
 
   return d3
     .scaleLinear()
-    .domain([xMin * 1.1, xMax * 1.1])
+    .domain([xMin * 1.2, xMax * 1.2])
     .range([0, width])
 }
 const getYScale = (points: IPoint[], height: number) => {
@@ -20,8 +20,14 @@ const getYScale = (points: IPoint[], height: number) => {
 
   return d3
     .scaleLinear()
-    .domain([yMin * 1.1, yMax * 1.1])
+    .domain([yMin * 1.2, yMax * 1.2])
     .range([height, 0])
 }
 
-export { getXScale, getYScale }
+const getInsScale = (instabilities: number[]) => {
+  const iMax = d3.max(instabilities) as number
+
+  return d3.scaleLinear().domain([0, iMax]).range([0, 1])
+}
+
+export { getXScale, getYScale, getInsScale }

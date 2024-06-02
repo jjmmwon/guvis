@@ -8,7 +8,7 @@ interface IPoint {
 }
 
 interface IProjection {
-  points: IPoint[]
+  projection: IPoint[]
 }
 
 interface IGhostProjection {
@@ -16,9 +16,11 @@ interface IGhostProjection {
 }
 
 interface GhostUMAPResponse {
-  projection: IProjection
-  ghostProjection: IGhostProjection
-  ghostInices: number[]
+  projection: IPoint[]
+  ghostProjections: IGhostProjection
+  ghostIndices: number[]
+  instabilityRanks: number[]
+  instabilities: number[]
 }
 
 interface IPixels {
@@ -37,6 +39,7 @@ export type {
   Ttitle,
   IPoint,
   IProjection,
+  IGhostProjection,
   GhostUMAPResponse,
   IPixels,
   PixelResponse

@@ -1,1 +1,1 @@
-export { getXScale, getYScale } from './scales'
+export { getXScale, getYScale, getInsScale } from './scales'

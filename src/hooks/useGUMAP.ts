@@ -15,8 +15,11 @@ export default function useGUMAP(
   useEffect(() => {
     async function fetchData() {
       if (!init) return
+      console.log(dataTitle, numberOfGhosts)
       const response = await fetch(
-        `https://localhost:50015/gumap?data=${dataTitle}&n_ghosts=${numberOfGhosts}`
+        // `http://localhost:50018/gumap/?data=${dataTitle}&nGhosts=${numberOfGhosts}`
+        // `http://localhost:50018/umap`
+        `${dataTitle}_response_16.json`
       )
       const data: GhostUMAPResponse = await response.json()
       console.log(data)

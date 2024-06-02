@@ -15,7 +15,7 @@ function Header() {
       justify="space-between"
       padding={2}
     >
-      <Flex alignItems={'center'} pl={3}>
+      <Flex alignItems={'center'} mx={5}>
         <Heading size="md" variant={'layout'} alignItems="center">
           GUVIS
         </Heading>

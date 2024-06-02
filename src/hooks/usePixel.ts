@@ -11,7 +11,7 @@ export default function usePixel(
   useEffect(() => {
     async function fetchData() {
       if (!init) return
-      const response = await fetch(`${dataTitle}.json`)
+      const response = await fetch(`${dataTitle}_pixel.json`)
       const pixels: PixelResponse = await response.json()
       console.log(pixels)
 

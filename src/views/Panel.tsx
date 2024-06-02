@@ -14,10 +14,13 @@ function Panel(prop: IProp) {
   // console.log(points.map((p: number) => projection.points[p].l))
   const { points, pixel, pixelSize } = prop
   return (
-    <Flex wrap="wrap">
-      {points.map((p: number) => {
-        return <PixelImage key={p} pixels={pixel[p]} pixelSize={pixelSize} />
-      })}
+    <Flex wrap="wrap" justifyContent={'center'}>
+      <Flex wrap="wrap" w="400px">
+        {points.map((p: number) => {
+          return <PixelImage key={p} pixels={pixel[p]} pixelSize={pixelSize} />
+        })}
+      </Flex>
+
       {/* {points.map((p: number) => {
         return <div key={p}>{projection.points[p].l}</div>
       })} */}
